@@ -23,5 +23,5 @@ urlpatterns = [
     path('homeGerente/',homeGerente,name='homeGerente'),# Url para acceder al home del Gerente
     path('homeDirector/',homeDirector,name='homeDirector'),# Url para acceder al home del Director
     path ('logout/',exit, name='exit'), #URL que realiza el logout
-    path('group/capataz/users/', group_users, name='group_users'), #URL en prueba para listar usuarios
+    path('capataz/users/', group_users, name='group_users'), #URL en prueba para listar usuarios
 ]
