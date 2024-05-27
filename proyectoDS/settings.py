@@ -126,7 +126,7 @@ USE_TZ = True
 #Acceso a las URLS Static donde se alojan los archivos .css, imagenes y demas 
 
 STATIC_URL = '/core/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATICFILES_DIRS = [os.path.join(BASE_DIR,'core', 'static')]
 
 #Login y Logout
 
