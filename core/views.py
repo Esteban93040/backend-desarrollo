@@ -23,13 +23,14 @@ def homeCapataz(request): #Pagina de inicio de los Capataz
 
 @login_required
 def homeGerente(request): #Pagina de inicio del gerente
-    if request.user.is_superuser:
-        if request.method == 'POST':
+    
+    if request.user.is_superuser: #Si el usuario que realiza el logueo es superuser entonces entra al homeGerente
+        if request.method == 'POST': #se define que si el metodo es igual a POST se realizara 
             form = CustomUserCreationForm(request.POST)
             if form.is_valid():
-                user = form.save()
-                group = form.cleaned_data['group']
-                group.user_set.add(user)
+                user = form.save() #guarda los datos
+                group = form.cleaned_data['group'] 
+                group.user_set.add(user) #Se añade el usuario al grupo
                 return redirect('homeGerente')
         else:
             form = CustomUserCreationForm()
