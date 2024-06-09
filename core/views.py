@@ -51,4 +51,9 @@ def group_users(request): #Esta es una prueba para listar usuarios perteneciente
     return render(request, 'frontend/group_users.html', {'group': group, 'users': users})
 
 
+def prueba(request): 
+    
+        return render(request,'frontend/prueba.html')
+
+
 

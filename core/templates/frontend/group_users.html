@@ -1,17 +1,68 @@
-<!-- Archivo de prueba -->
+{% load static %} 
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Usuarios del Grupo</title>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Panel | Tivotal</title>
+
+    <!--font awesome-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!--css file-->
+    <link rel="stylesheet" href={% static 'css/prueba.css' %} />
+    </head>
 <body>
-    <h1>Usuarios en el grupo: {{ group.name }}</h1> 
-    <ul>
-        {% for user in users %}
-            <li>{{ user.username }} {{ user.id }}</li>
-        {% endfor %}
-    </ul>
+    <section class="content">
+      
+
+        <main>
+          
+  
+          
+  
+          <div class="table-data">
+            <div class="order">
+              <div class="head">
+                <h3>Recent Orders</h3>
+                <i class="fas fa-search"></i>
+                <i class="fas fa-filter"></i>
+              </div>
+              <table>
+                <thead>
+                <tr>
+                    <th>Usuario</th>
+                    <th>Nombre</th>
+                    <th>ID</th>
+                </tr>
+                </thead>
+                    <tbody>
+
+                        {% for user in users %}
+                            <tr>
+                                <td>
+                                    <p>{{ user.username }}</p>
+                                </td>
+                                <td>
+                                    {{ user.first_name }}
+                                </td>
+                                <td>
+                                    {{ user.id }}
+                                </td>            
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+            </table>
+            </div>
+  
+            
+          </div>
+        </main>
+      </section>
 </body>
 </html>
