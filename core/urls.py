@@ -25,4 +25,5 @@ urlpatterns = [
     path ('logout/',exit, name='exit'), #URL que realiza el logout
     path('capataz/users/', group_users, name='group_users'), #URL en prueba para listar usuarios
     path ('prueba/',prueba, name='prueba'), #URL que realiza el logout
+    path ('dashboard/',dashboard, name='dashboard'), #URL que nos manda al dashboard
 ]

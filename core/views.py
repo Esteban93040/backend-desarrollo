@@ -10,7 +10,7 @@ from .forms import *
 @login_required
 def home(request):
     if request.user.is_superuser: #Si es usuario es un superuser accedera al home destinado para el gerente
-        return redirect(homeGerente)
+        return redirect(dashboard)
     if request.user.groups.filter(name='Director').exists(): #Si es un usuario perteneciente al grupo Director accedera al home destinado para el Director
         return redirect(homeDirector)
     else:
@@ -34,7 +34,7 @@ def homeGerente(request): #Pagina de inicio del gerente
                 return redirect('homeGerente')
         else:
             form = CustomUserCreationForm()
-        return render(request, 'frontend/homeGerente.html', {'form': form})
+        return render(request, 'frontend/Gerente/homeGerente.html', {'form': form})
 
 @login_required
 def homeDirector(request): #Pagina de inicio del director
@@ -48,12 +48,16 @@ def exit(request): # el exit define que el usuario cerro sesión y redirige al h
 def group_users(request): #Esta es una prueba para listar usuarios pertenecientes a un grupo, aun no esta lista
     group = get_object_or_404(Group, name='Capataz')
     users = group.user_set.all()
-    return render(request, 'frontend/group_users.html', {'group': group, 'users': users})
+    return render(request, 'frontend/Gerente/group_users.html', {'group': group, 'users': users})
 
 
 def prueba(request): 
     
-        return render(request,'frontend/prueba.html')
+        return render(request,'frontend/Gerente/prueba.html')
+
+def dashboard(request): 
+    
+        return render(request,'frontend/Gerente/dashboard.html')
 
 
 

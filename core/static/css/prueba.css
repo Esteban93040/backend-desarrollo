@@ -173,7 +173,7 @@ body.dark {
   transition: 0.3s ease;
 }
 
-.sidebar.hide ~ .content {
+.sidebar.hide~.content {
   width: calc(100% - 60px);
   left: 60px;
 }
@@ -282,7 +282,7 @@ body.dark {
   transition: 0.3s ease;
 }
 
-.content nav #switch-mode:checked + .switch-mode::before {
+.content nav #switch-mode:checked+.switch-mode::before {
   left: calc(100% - (25px - 4px) - 2px);
 }
 
@@ -431,7 +431,7 @@ body.dark {
   color: var(--dark);
 }
 
-.content main .table-data > div {
+.content main .table-data>div {
   border-radius: 20px;
   background: var(--light);
   padding: 24px;
@@ -605,8 +605,8 @@ body.dark {
     background: var(--red);
   }
 
-  .content nav form.show ~ .notification,
-  .content nav form.show ~ .profile {
+  .content nav form.show~.notification,
+  .content nav form.show~.profile {
     display: none;
   }
 
