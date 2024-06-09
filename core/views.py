@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from django.contrib.auth.models import Group
 from django.contrib.auth import authenticate, login
+from django.contrib import messages
 from .forms import *
 
 
@@ -23,7 +24,8 @@ def homeCapataz(request): #Pagina de inicio de los Capataz
 
 @login_required
 def homeGerente(request): #Pagina de inicio del gerente
-    
+    group = get_object_or_404(Group, name='Capataz')
+    users = group.user_set.all()
     if request.user.is_superuser: #Si el usuario que realiza el logueo es superuser entonces entra al homeGerente
         if request.method == 'POST': #se define que si el metodo es igual a POST se realizara 
             form = CustomUserCreationForm(request.POST)
@@ -34,7 +36,7 @@ def homeGerente(request): #Pagina de inicio del gerente
                 return redirect('homeGerente')
         else:
             form = CustomUserCreationForm()
-        return render(request, 'frontend/homeGerente.html', {'form': form})
+        return render(request, 'frontend/homeGerente.html', {'group': group, 'users': users, 'form': form})
 
 @login_required
 def homeDirector(request): #Pagina de inicio del director
