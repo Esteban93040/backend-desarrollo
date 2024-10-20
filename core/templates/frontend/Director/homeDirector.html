@@ -1,0 +1,37 @@
+{% extends 'frontend/Director/base.html' %}
+
+{% block content %}
+
+<body>
+    <table id="example" class="table table-striped" style="width: 100;">
+        <thead>
+          <tr>
+            <th>Usuario</th>
+            <th>Nombre</th>
+            <th>ID</th>
+            <th>Grupo</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for user in users_capataz %}
+          <tr>
+              <td>
+                  <p>{{ user.username }}</p>
+              </td>
+              <td>
+                  {{ user.first_name }}
+              </td>
+              <td>
+                  {{ user.id }}
+              </td>
+              <td>
+                  {{ group.name }}  <!-- Obtiene el nombre del primer grupo al que pertenece el usuario -->
+              </td>
+          </tr>
+          {% endfor %}
+      </tbody>
+      </table>
+
+</body>
+
+{% endblock %}

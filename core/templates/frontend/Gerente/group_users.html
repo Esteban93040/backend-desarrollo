@@ -1,0 +1,59 @@
+{% extends 'frontend/Gerente/base.html' %}
+
+{% block content %}
+<div class="d-flex align-items-center justify-content-center vh-100">
+  <div class="container">
+    <div class="table-data">
+      <div class="order">
+        <div class="head">
+          <h3>Usuarios</h3>
+          <form action="{% url 'group_users' %}" method="POST" class="form-inline my-2 my-lg-0">
+            {% csrf_token %}
+            <input class="form-control mr-sm-2" type="number" placeholder="ID de Usuario" name="user_id">
+            <button class="btn btn-danger my-2 my-sm-0" type="submit">
+              <i class="fas fa-times"></i> Eliminar Usuario
+            </button>
+          </form>
+          <form action="{% url 'group_users' %}" method="GET" class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Buscar por nombre" aria-label="Search"
+              name="search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+              <i class="fas fa-search"></i>
+            </button>
+          </form>
+          <i class="fas fa-filter"></i>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Usuario</th>
+              <th>Nombre</th>
+              <th>ID</th>
+              <th>Grupo</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for user in all_user %}
+            <tr>
+                <td>
+                    <p>{{ user.username }}</p>
+                </td>
+                <td>
+                    {{ user.first_name }}
+                </td>
+                <td>
+                    {{ user.id }}
+                </td>
+                <td>
+                    {{ user.groups.first.name }}  <!-- Obtiene el nombre del primer grupo al que pertenece el usuario -->
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
