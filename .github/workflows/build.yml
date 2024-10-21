@@ -30,4 +30,4 @@ jobs:
       # Run tests with coverage
       - name: Run tests with coverage
         run: |
-          coverage run manage.py test  # Cambia "m
+          coverage run manage.py test --keepdb
