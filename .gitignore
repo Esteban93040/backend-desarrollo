@@ -3,4 +3,4 @@ proyectoDS/settings.py
 proyectoDS/__pycache__
 core/__pycache__
 .vscode/
-.env
+# .env
