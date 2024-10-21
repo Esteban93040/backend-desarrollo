@@ -18,7 +18,7 @@ class ObraModelTest(TestCase):
         )
         self.assertEqual(obra.idObra, 1)
         self.assertEqual(obra.idDirector, 101)
-        self.assertEqual(obra.nombreObra, "Construcción B")
+        self.assertEqual(obra.nombreObra, "Construcción A")
         self.assertEqual(obra.estadoObra, "Activa")
         self.assertEqual(obra.fechaInicioObra, date(2024, 1, 1))
 
@@ -72,3 +72,4 @@ class AsignarTareasModelTest(TestCase):
         )
         self.assertEqual(tarea.idDirector, 101)
         self.assertEqual(tarea.descripcion, "Tarea de prueba")
+        

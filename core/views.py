@@ -7,8 +7,6 @@ from .forms import *
 from django.http import HttpResponse
 from .models import *
 
-
-
 #@login required se utiliza para validar que el usuario este logueado para poder acceder a la pagina respectiva
 @login_required
 def home(request):
