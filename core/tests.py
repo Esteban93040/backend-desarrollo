@@ -59,6 +59,19 @@ class AvancesModelTest(TestCase):
         self.assertEqual(avance.idUsuario, 101)
         self.assertEqual(avance.porcentajeAvance, 75)
 
+    def test_update_avance(self):
+        # Crear y luego actualizar una instancia de Avances
+        avance = Avances.objects.create(
+            idUsuario=101,
+            porcentajeAvance=75
+        )
+        avance.porcentajeAvance = 85
+        avance.save()
+
+        # Verificar que los cambios se hayan guardado
+        self.assertEqual(avance.porcentajeAvance, 85)
+    
+
 
 class AsignarTareasModelTest(TestCase):
     def test_create_asignar_tareas(self):
@@ -72,4 +85,41 @@ class AsignarTareasModelTest(TestCase):
         )
         self.assertEqual(tarea.idDirector, 101)
         self.assertEqual(tarea.descripcion, "Tarea de prueba")
+
+    def test_update_asignar_tareas(self):
+        # Crear y luego actualizar una instancia de asignarTareas
+        tarea = asignarTareas.objects.create(
+            idDirector=101,
+            descripcion="Tarea inicial"
+        )
+        tarea.descripcion = "Tarea modificada"
+        tarea.save()
+
+        # Verificar que los cambios se hayan guardado
+        self.assertEqual(tarea.descripcion, "Tarea modificada")
+
+    def test_delete_asignar_tareas(self):
+        # Crear y luego eliminar una instancia de asignarTareas
+        tarea = asignarTareas.objects.create(
+            idDirector=101,
+            descripcion="Tarea de prueba"
+        )
+        tarea_id = tarea.id
+        tarea.delete()
         
+# Verificar que la instancia haya sido eliminada
+        self.assertFalse(asignarTareas.objects.filter(id=tarea_id).exists())
+        
+# Actualizando test_update
+
+    def test_update_informe(self):
+        # Crear y luego actualizar una instancia de informes
+        informe = informes.objects.create(
+              idInforme=1,
+              idUsuario=101
+          )
+        informe.idUsuario = 202
+        informe.save()
+
+        # Verificar que los cambios se hayan guardado
+        self.assertEqual(informe.idUsuario, 202)
