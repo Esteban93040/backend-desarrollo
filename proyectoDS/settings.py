@@ -90,11 +90,11 @@ WSGI_APPLICATION = 'proyectoDS.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres.rzknugogaxpzqtqmijql',
+        'NAME': os.getenv('NAME'),
+        'USER': os.getenv('USER'),
         'PASSWORD': os.getenv('PASSWORD'),
-        'HOST': 'aws-0-us-west-1.pooler.supabase.com',  # o la dirección de tu servidor de base de datos
-        'PORT': '6543',
+        'HOST': os.getenv('HOST'),  # o la dirección de tu servidor de base de datos
+        'PORT': os.getenv('PORT'),
     }
 }
 
